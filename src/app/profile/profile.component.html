@@ -1,0 +1,239 @@
+<div class="github-profile-container" *ngIf="!loading && user">
+  <!-- Header -->
+  <header class="github-header">
+    <div class="header-left">
+      <svg class="github-logo" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+      <span class="username">{{ user.login }}</span>
+    </div>
+    <div class="header-right">
+      <input type="text" class="search-input" placeholder="Type to search">
+      <button class="icon-button">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path d="M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z"></path>
+          <path
+            d="M8 3.75a.75.75 0 01.75.75v3.25h3.25a.75.75 0 010 1.5H8.75V12.5a.75.75 0 01-1.5 0V9.25H4a.75.75 0 010-1.5h3.25V4.5A.75.75 0 018 3.75z">
+          </path>
+        </svg>
+      </button>
+      <button class="icon-button">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+          <path
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </button>
+      <img [src]="user.avatar_url" class="profile-avatar-small" alt="Profile">
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <img [src]="user.avatar_url" class="profile-avatar" alt="Profile Picture">
+      <h1 class="profile-name">{{ user.name }}</h1>
+      <p class="profile-username">{{ user.login }}</p>
+      <p class="profile-bio">{{ user.bio || 'Director of Engineering @UptimeAI' }}</p>
+      <button class="edit-profile-btn">Edit profile</button>
+
+      <div class="profile-stats">
+        <span>{{ user.followers }} followers</span>
+        <span>•</span>
+        <span>{{ user.following }} following</span>
+      </div>
+
+      <div class="profile-info">
+        <div class="info-item" *ngIf="user.company">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zM6.379 5.227A.25.25 0 006.192 5H4.5a.25.25 0 00-.192.379l1.5 1.75a.25.25 0 00.384 0l1.5-1.75zm5.242 0A.25.25 0 009.808 5H8.108a.25.25 0 00-.192.379l1.5 1.75a.25.25 0 00.384 0l1.5-1.75z">
+            </path>
+          </svg>
+          <span>{{ user.company }}</span>
+        </div>
+        <div class="info-item" *ngIf="user.location">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M11.536 3.464a5 5 0 010 7.072L8 14.07l-3.536-3.536a5 5 0 117.072-7.072zm.493 8.197a6.5 6.5 0 10-.878.878 3.5 3.5 0 00.878-.878zM8 9a2 2 0 100-4 2 2 0 000 4z">
+            </path>
+          </svg>
+          <span>{{ user.location }}</span>
+        </div>
+        <div class="info-item" *ngIf="user.email">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0114.25 14H1.75A1.75 1.75 0 010 12.25v-8.5C0 2.784.784 2 1.75 2zM1.5 12.251c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.809L8.94 9.76a.75.75 0 01-.88 0L1.5 5.809v6.442zm13-8.181v-.32a.25.25 0 00-.25-.25H1.75a.25.25 0 00-.25.25v.32L8 7.88l6.5-3.81z">
+            </path>
+          </svg>
+          <a [href]="'mailto:' + user.email">{{ user.email }}</a>
+        </div>
+        <div class="info-item" *ngIf="user.blog">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z">
+            </path>
+          </svg>
+          <a [href]="user.blog" target="_blank">{{ user.blog }}</a>
+        </div>
+        <div class="info-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M4.75 0a.75.75 0 01.75.75V2h5V.75a.75.75 0 011.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0113.25 16H2.75A1.75 1.75 0 011 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 014.75 0zm0 1.5v3a.75.75 0 01-1.5 0v-3h-1.5a.25.25 0 00-.25.25v10.5c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25V3.75a.25.25 0 00-.25-.25h-1.5v3a.75.75 0 01-1.5 0v-3h-5z">
+            </path>
+          </svg>
+          <a href="https://www.linkedin.com/in/shreeramkushwaha" target="_blank">in/shreeramkushwaha</a>
+        </div>
+        <div class="info-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M5.526 4.526c-1.03 0-1.858.828-1.858 1.858 0 1.03.828 1.858 1.858 1.858 1.03 0 1.858-.828 1.858-1.858 0-1.03-.828-1.858-1.858-1.858zm5.948 0c-1.03 0-1.858.828-1.858 1.858 0 1.03.828 1.858 1.858 1.858 1.03 0 1.858-.828 1.858-1.858 0-1.03-.828-1.858-1.858-1.858z">
+            </path>
+            <path
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+            </path>
+          </svg>
+          <a href="https://twitter.com/pom_fret" target="_blank">@pom_fret</a>
+        </div>
+      </div>
+
+      <div class="achievements">
+        <h3 class="section-title">Achievements</h3>
+        <div class="achievement-badges">
+          <div class="achievement-badge" *ngFor="let achievement of achievements">
+            <span class="badge-icon">{{ achievement.icon }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="organizations">
+        <h3 class="section-title">Organizations</h3>
+        <div class="org-list">
+          <img *ngFor="let org of organizations" [src]="org.avatar" [alt]="org.name" class="org-avatar">
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="content-area">
+      <!-- Tabs -->
+      <nav class="tabs">
+        <button class="tab" [class.active]="activeTab === 'overview'" (click)="setActiveTab('overview')">
+          Overview
+        </button>
+        <button class="tab" [class.active]="activeTab === 'repositories'" (click)="setActiveTab('repositories')">
+          Repositories <span class="tab-count">{{ user.public_repos }}</span>
+        </button>
+        <button class="tab" [class.active]="activeTab === 'projects'" (click)="setActiveTab('projects')">
+          Projects
+        </button>
+        <button class="tab" [class.active]="activeTab === 'packages'" (click)="setActiveTab('packages')">
+          Packages <span class="tab-count">5</span>
+        </button>
+        <button class="tab" [class.active]="activeTab === 'stars'" (click)="setActiveTab('stars')">
+          Stars <span class="tab-count">6</span>
+        </button>
+      </nav>
+
+      <!-- Tab Content -->
+      <div class="tab-content" *ngIf="activeTab === 'overview'">
+        <!-- Popular Repositories -->
+        <div class="section">
+          <div class="section-header">
+            <h2>Popular repositories</h2>
+            <a href="#" class="customize-link">Customize your pins</a>
+          </div>
+          <div class="repo-grid">
+            <div class="repo-card" *ngFor="let repo of popularRepos">
+              <div class="repo-header">
+                <a href="#" class="repo-name">{{ repo.name }}</a>
+                <span class="repo-badge">Public</span>
+              </div>
+              <p class="repo-description">{{ repo.description }}</p>
+              <div class="repo-footer">
+                <span class="repo-language" *ngIf="repo.language">{{ repo.language }}</span>
+                <span class="repo-fork" *ngIf="repo.isFork">Forked from {{ repo.fullName }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contribution Graph -->
+        <div class="section">
+          <div class="section-header">
+            <h2>{{ contributionStats.total }} contributions in the last year</h2>
+            <select class="contribution-settings">
+              <option>Contribution settings</option>
+            </select>
+          </div>
+          <app-contribution-graph></app-contribution-graph>
+        </div>
+
+        <!-- Activity Overview -->
+        <div class="section">
+          <h2>Contributed to {{ monthlyActivity.repositories }} repositories</h2>
+          <div class="contribution-breakdown">
+            <div class="breakdown-item">
+              <span class="breakdown-label">Commits</span>
+              <span class="breakdown-value">{{ contributionStats.commits }}%</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label">Pull requests</span>
+              <span class="breakdown-value">{{ contributionStats.pullRequests }}%</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label">Code review</span>
+              <span class="breakdown-value">0%</span>
+            </div>
+            <div class="breakdown-item">
+              <span class="breakdown-label">Issues</span>
+              <span class="breakdown-value">0%</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contribution Activity -->
+        <div class="section">
+          <h2>{{ monthlyActivity.month }}</h2>
+          <div class="activity-stats">
+            <p>Created {{ monthlyActivity.commits }} commits in {{ monthlyActivity.repositories }} repositories</p>
+            <p>Opened {{ monthlyActivity.pullRequests }} pull requests in 5 repositories</p>
+          </div>
+          <div class="pr-list">
+            <div class="pr-item" *ngFor="let pr of monthlyActivity.prDetails">
+              <a href="#" class="pr-repo">{{ pr.repo }}</a>
+              <span class="pr-status">
+                <span *ngIf="pr.merged">{{ pr.merged }} merged</span>
+                <span *ngIf="pr.open">{{ pr.open }} open</span>
+              </span>
+            </div>
+          </div>
+          <button class="show-more-btn">Show more activity</button>
+        </div>
+      </div>
+
+      <div class="tab-content" *ngIf="activeTab === 'repositories'">
+        <p class="empty-state">Repositories content will be displayed here</p>
+      </div>
+
+      <div class="tab-content" *ngIf="activeTab === 'projects'">
+        <p class="empty-state">Projects content will be displayed here</p>
+      </div>
+
+      <div class="tab-content" *ngIf="activeTab === 'packages'">
+        <p class="empty-state">Packages content will be displayed here</p>
+      </div>
+
+      <div class="tab-content" *ngIf="activeTab === 'stars'">
+        <p class="empty-state">Stars content will be displayed here</p>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div class="loading" *ngIf="loading">
+  <p>Loading profile...</p>
+</div>
