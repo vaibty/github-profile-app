@@ -103,6 +103,41 @@ To run tests:
 ng test
 ```
 
+## Deployment to GitHub Pages
+
+This project is configured to automatically deploy to GitHub Pages using GitHub Actions.
+
+### Automatic Deployment
+
+1. **Enable GitHub Pages in your repository:**
+   - Go to your repository on GitHub
+   - Navigate to **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions**
+
+2. **Push to main branch:**
+   - The workflow will automatically trigger on every push to the `main` branch
+   - You can also manually trigger it from the **Actions** tab → **Deploy to GitHub Pages** → **Run workflow**
+
+3. **Access your site:**
+   - After deployment completes, your site will be available at:
+   - `https://[your-username].github.io/[repository-name]/`
+
+### Manual Deployment
+
+If you prefer to deploy manually:
+
+```bash
+npm run build:github-pages
+```
+
+Then push the `dist/github-profile-app` folder to the `gh-pages` branch.
+
+### Important Notes
+
+- The base href in the workflow automatically uses your repository name
+- If your repository name is different from `github-profile-app`, update the `baseHref` in `angular.json` under the `github-pages` configuration
+- The deployment workflow uses Node.js 18 and builds with production optimizations
+
 ## License
 
 This project is for educational purposes.
